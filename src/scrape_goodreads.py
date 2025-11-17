@@ -16,7 +16,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 # configuración de rutas sistema y web
 load_dotenv("../.env.example")
 BASE_URL = os.getenv('GOODREADS_URL')
-print(BASE_URL)
 QUERY = os.getenv('QUERY_GOODREADS')
 SEARCH_URL = f"{BASE_URL}{QUERY}"
 

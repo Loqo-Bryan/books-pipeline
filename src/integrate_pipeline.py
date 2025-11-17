@@ -357,9 +357,6 @@ bsd.to_parquet(os.path.join(STANDARD_DIR, "book_source_detail.parquet"), index=F
 # parquet de dim_book 
 dim_book.to_parquet(os.path.join(STANDARD_DIR, "dim_book.parquet"), index=False, engine="pyarrow")
 
-print(bsd.to_string())
-print(dim_book.to_string())
-
 # Generar schema.md
 schema_lines = []
 
