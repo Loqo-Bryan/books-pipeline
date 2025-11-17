@@ -3,15 +3,18 @@ import json
 import csv
 import urllib.parse
 import os
+from dotenv import load_dotenv
 from utils_quality import *
 from utils_isbn import *
 
 #--------------------------------------------------------------------------------------------------------------
 
 # configuración de rutas sistema y web
-LANDING_DIR = "../landing"
+load_dotenv("../.env.example")
+LANDING_DIR = os.getenv('LANDING_DIR')
 INPUT_JSON = os.path.join(LANDING_DIR, "goodreads_books.json")
 OUTPUT_CSV = os.path.join(LANDING_DIR, "googlebooks_books.csv")
+URL_API = os.getenv('GOOGLEBOOKS_API_URL')
 
 # función para obtener info de libros usando la API de googlebooks
 def search_google_books(isbn10, isbn13, title, author):
@@ -22,14 +25,14 @@ def search_google_books(isbn10, isbn13, title, author):
 
     # búsqueda por ISBN preferente
     if isbn13:
-        url = f"https://www.googleapis.com/books/v1/volumes?q=isbn:{isbn13}"
+        url = f"{URL_API}q=isbn:{isbn13}"
     elif isbn10:
-        url = f"https://www.googleapis.com/books/v1/volumes?q=isbn:{isbn10}"
+        url = f"{URL_API}q=isbn:{isbn10}"
     else:
         # búsqueda por título + autor
         q_title = urllib.parse.quote(title or "")
         q_author = urllib.parse.quote(author or "")
-        url = f"https://www.googleapis.com/books/v1/volumes?q=intitle:{q_title}+inauthor:{q_author}"
+        url = f"{URL_API}q=intitle:{q_title}+inauthor:{q_author}"
 
     r = requests.get(url)
     data = r.json()

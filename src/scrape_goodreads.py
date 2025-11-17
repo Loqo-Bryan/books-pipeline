@@ -3,6 +3,7 @@ import json
 import re
 import time
 import os
+from dotenv import load_dotenv
 from datetime import datetime, timezone
 from utils_isbn import *
 from selenium import webdriver
@@ -13,13 +14,17 @@ from selenium.webdriver.support.ui import WebDriverWait
 #--------------------------------------------------------------------------------------------------------------
 
 # configuración de rutas sistema y web
-BASE_URL = "https://www.goodreads.com"
-SEARCH_URL = "https://www.goodreads.com/search?q=data+science"
+load_dotenv("../.env.example")
+BASE_URL = os.getenv('GOODREADS_URL')
+print(BASE_URL)
+QUERY = os.getenv('QUERY_GOODREADS')
+SEARCH_URL = f"{BASE_URL}{QUERY}"
 
-LANDING_DIR = "../landing"
-OUTPUT_JSON = os.path.join(LANDING_DIR, "goodreads_books.json")
+OUT_DIR = os.getenv('LANDING_DIR')
+print(OUT_DIR)
+OUTPUT_JSON = os.path.join(OUT_DIR, "goodreads_books.json")
 
-os.makedirs(LANDING_DIR, exist_ok=True)
+os.makedirs(OUT_DIR, exist_ok=True)
 
 # configuración de Selenium
 options = Options()

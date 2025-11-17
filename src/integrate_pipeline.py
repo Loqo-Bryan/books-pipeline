@@ -3,15 +3,17 @@ import glob
 import json
 import hashlib
 import pandas as pd
+from dotenv import load_dotenv
 from utils_quality import *
 from utils_isbn import *
 
 #--------------------------------------------------------------------------------------------------------------
 
 # configuración de rutas sistema y web
-LANDING_DIR = "../landing"
-DOCS_DIR = "../docs"
-STANDARD_DIR = "../standard"
+load_dotenv("../.env.example")
+LANDING_DIR = os.getenv('LANDING_DIR')
+DOCS_DIR = os.getenv('DOCS_DIR')
+STANDARD_DIR = os.getenv('STANDARD_DIR')
 
 os.makedirs(DOCS_DIR, exist_ok=True)
 os.makedirs(STANDARD_DIR, exist_ok=True)
@@ -354,6 +356,9 @@ bsd.to_parquet(os.path.join(STANDARD_DIR, "book_source_detail.parquet"), index=F
 
 # parquet de dim_book 
 dim_book.to_parquet(os.path.join(STANDARD_DIR, "dim_book.parquet"), index=False, engine="pyarrow")
+
+print(bsd.to_string())
+print(dim_book.to_string())
 
 # Generar schema.md
 schema_lines = []
