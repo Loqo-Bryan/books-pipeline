@@ -1,0 +1,15 @@
+{
+  "output_files": {
+    "dim_book_parquet": "/standard/dim_book.parquet",
+    "book_source_detail_parquet": "/standard/book_source_detail.parquet",
+    "quality_metrics": "/docs/quality_metrics.json",
+    "schema_md": "/docs/schema.md"
+  },
+  "counts": {
+    "goodreads_rows": 15,
+    "google_books_rows": 15,
+    "merged_rows": 10,
+    "canonical_rows_emitted": 10
+  },
+  "ingest_ts": "2025-11-17T18:01:13.391491+00:00"
+}

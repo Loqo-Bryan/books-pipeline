@@ -1,0 +1,40 @@
+{
+  "ingest_timestamp": "2025-11-17T18:01:13.391491+00:00",
+  "files_read": [
+    {
+      "file_name": "goodreads_books.json",
+      "path": "/landing/goodreads_books.json",
+      "size_bytes": 6612,
+      "sha256": "8c6e25cd885efa3d972d371c4c0ca6dfbcd23c19bbbe2c3651ed8feb44f4400c",
+      "ingest_timestamp": "2025-11-17T18:01:13.391491+00:00"
+    },
+    {
+      "file_name": "googlebooks_books.csv",
+      "path": "/landing/googlebooks_books.csv",
+      "size_bytes": 2836,
+      "sha256": "f7df3c6a840755fbe03e4f9570bea560feae4f5cd8476816d4d8593f5d164b19",
+      "ingest_timestamp": "2025-11-17T18:01:13.391491+00:00"
+    }
+  ],
+  "counts": {
+    "goodreads_rows": 15,
+    "google_books_rows": 15,
+    "merged_rows": 10,
+    "canonical_rows_emitted": 10
+  },
+  "missing_counts": {
+    "isbn13": 0,
+    "isbn10": 0,
+    "title": 0,
+    "authors": 0,
+    "pub_date": 0,
+    "language": 0,
+    "price_amount": 6
+  },
+  "title_coverage_ratio": 1.0,
+  "isbn13_unique": true,
+  "bad_price_values": false,
+  "duplicates_detected_by_isbn13": 0,
+  "synthetic_ids_count": 0,
+  "examples_synthetic_ids": []
+}

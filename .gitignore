@@ -4,12 +4,5 @@ __pycache__/
 .venv/
 src/__pycache__/
 
-# Datos / Salidas
-landing/*.csv
-landing/*.json
-standard/*.parquet
-docs/*.json
-docs/*.md
-
 # OS
 .DS_Store
